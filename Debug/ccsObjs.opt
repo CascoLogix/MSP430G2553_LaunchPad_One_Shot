@@ -1,0 +1,1 @@
+"./GPIO.obj" "./Timer0_A3.obj" "./Timer1_A3.obj" "./main.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 
