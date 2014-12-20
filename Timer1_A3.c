@@ -56,9 +56,10 @@ functionPointer_t timer1_A0_callback;
 //Put function definitions here
 void Timer1_init (void)
 {
-	TA1CTL = TASSEL_2 | TACLR;	// Clk = SMCLK; Clear timer
-	TA1CCR0 = 0;				// Clear compare register
-	TA1CTL = MC_2;				// Start timer in "UP" mode
+	TA1CTL = TASSEL_2;			// Clk = SMCLK; Clear timer
+	TA1CTL |= MC_1;				// Start timer in "UP" mode
+	TA1CCR0 = 0;				// Set compare 0 register to set frequency
+	TA1CCTL0 = OUTMOD_4;		// Set compare mode to toggle on every match
 }
 
 
