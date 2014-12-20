@@ -57,6 +57,9 @@ void LED2_One_Shot (void)
 {
 	GPIO_PORT1.interrupt_enable &= ~S2_BIT;		// Disable interrupt
 	Timer0_armOneShot(25000, 1);				// Should cause a 200mS blink
+
+	// TODO:
+	// - replace with a function call to Timer1_A3 library
 	TA1CCR0 = 300;								// Set compare 0 register to set frequency
 }
 
@@ -65,6 +68,9 @@ void TA0CCR1_ISR_Handler (void)
 {
 	GPIO_PORT1.interrupt_enable |= S2_BIT;		// Enable P1.3 pin interrupt
 	TA0CCTL1 &= ~CCIE;							// Disable TA0CCR1 interrupt
+
+	// TODO:
+	// - replace with a function call to Timer1_A3 library
 	TA1CCR0 = 0;								// Set compare 0 register to turn off tone
 }
 
